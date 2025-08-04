@@ -1,0 +1,19 @@
+//First, we check 5S4.
+
+R:=IntegerRing(5);
+GL5:=GeneralLinearGroup(2,R);
+H:=sub<GL5|[0,3,3,4],[2,0,0,2],[3,0,4,4]>;
+SubH:=Subgroups(H: IndexEqual:=6);
+S2:=SubH[2]`subgroup;
+ClassS2:=Class(GL5,S2);
+ClassS2;
+
+//Next, we check 13S4.
+
+R:=IntegerRing(13);
+GL13:=GeneralLinearGroup(2,R);
+H:=sub<GL13|[3,0,12,9], [2,0,0,2],[9,5,0,6]>;
+SubH:=Subgroups(H: IndexEqual:=6);
+S4:=SubH[4]`subgroup;
+ClassS4:=Class(GL13,S4);
+ClassS4;
