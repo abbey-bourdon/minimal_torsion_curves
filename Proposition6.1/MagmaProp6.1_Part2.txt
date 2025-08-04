@@ -1,0 +1,160 @@
+//Let E be the elliptic curve over Q with LMFDB label 196.a1, which has 3-adic Galois image 9.12.0.2. First, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 3-isogenous to E has degree divisible by 9.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(3);
+F:=P!f;
+
+Factorization(Evaluate(F,y,406749952));
+
+Q<x>:=PolynomialRing(Q);
+G1:= x - 1792;
+G2:=x^3 - 67294589448743671101523200*x^2 + 30038606659510159733180006400*x - 16701273211881505426717171253248;
+E1:=EllipticCurveWithjInvariant(1792);
+Factorization(DivisionPolynomial(E1,9) div DivisionPolynomial(E1,3));
+L<a>:=NumberField(G2);
+E2:=EllipticCurveWithjInvariant(a);
+Factorization(DivisionPolynomial(E2,9) div DivisionPolynomial(E2,3));
+
+//Next, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 9-isogenous to E has degree divisible by 9.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(9);
+F:=P!f;
+
+Factorization(Evaluate(F,y,406749952));
+
+Q<x>:=PolynomialRing(Q);
+G1:= x^3 - 60791040*x^2 - 1235778600960*x - 8177943259906048; //It suffices to check this factor since the other generates a degree 9 extension.
+K<t>:=NumberField(G1);
+E1:=EllipticCurveWithjInvariant(t);
+Factorization(DivisionPolynomial(E1,9) div DivisionPolynomial(E1,3));
+
+//Since 9 divides the degree of any odd degree point on X_1(9) associated to an elliptic curve 3^r-isogenous to E for any r greater than 2, the point on X_1(9) of least odd degree associated to the geometric isogeny class of E has degree 9. This is achieved by E itself, so j_min is in Q.
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//Let E be the elliptic curve over Q with LMFDB label 304.c3, which has 3-adic Galois image 9.36.0.2. First, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 3-isogenous to E has degree divisible by 3 and any odd degree point on X_1(27) associated to an elliptic curve which is 3-isogenous to E has degree divisible by 27.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(3);
+F:=P!f;
+
+Factorization(Evaluate(F,y,94196375/3511808));//We can omit the polynomial of even degree.
+
+E1:=EllipticCurveWithjInvariant(-413493625/152);
+Factorization(DivisionPolynomial(E1,9) div DivisionPolynomial(E1,3));
+Factorization(DivisionPolynomial(E1,27) div DivisionPolynomial(E1,9));
+E2:=EllipticCurveWithjInvariant(-69173457625/2550136832);
+Factorization(DivisionPolynomial(E2,9) div DivisionPolynomial(E2,3));
+Factorization(DivisionPolynomial(E2,27) div DivisionPolynomial(E2,9));
+E:=EllipticCurveWithjInvariant(94196375/3511808);
+Factorization(DivisionPolynomial(E,9) div DivisionPolynomial(E,3));
+Factorization(DivisionPolynomial(E,27) div DivisionPolynomial(E,9));
+
+//Next, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 9-isogenous to E has degree divisible by 3 and any odd degree point on X_1(27) associated to an elliptic curve which is 9-isogenous to E has degree divisible by 27.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(9);
+F:=P!f;
+
+Factorization(Evaluate(F,y,94196375/3511808)); //Since 3 divides the degree of each factor, we are done in the case of X_1(9). We can omit the factor of even degree moving forward.
+
+Q<x>:=PolynomialRing(Q);
+G1:=x^3 + 20147999818076487000*x^2 - 25265828136237731437500*x + 13501463621460513473634765625/152;
+G2:=x^3 + 163324030777278339293433379474875/2417851639229258349412352*x^2 + 264261488937858836041903018290803847234375/1237940039285380274899124224*x + 22596255566587304276261753163974561744533353384765625/12042680702168179314218680451072;
+K<t>:=NumberField(G1);
+E1:=EllipticCurveWithjInvariant(t);
+Factorization(DivisionPolynomial(E1,27) div DivisionPolynomial(E1,9));
+L<a>:=NumberField(G2);
+E2:=EllipticCurveWithjInvariant(a);
+Factorization(DivisionPolynomial(E2,27) div DivisionPolynomial(E2,9));
+
+//Finally, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 27-isogenous to E has degree divisible by 3 and any odd degree point on X_1(27) associated to an elliptic curve which is 27-isogenous to E has degree divisible by 27.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(27);
+F:=P!f;
+Factorization(Evaluate(F,y,94196375/3511808));
+
+Q<x>:=PolynomialRing(Q);
+G1:=x^9 + 8178917260240872684928325432309833087577661094352023347000*x^8 - 23170518556673546875333748254276299432860583246399697514248522312500*x^7 + 700892643287961924820976838831414841526800045189954495028423407849556156250000*x^6 - 2003450399004107450469698685053007470448229877001322813872071890968384856562988281250*x^5 + 5454582165402439268097003289825818436928697863749724282529051114053262467858922363281250000*x^4 - 718093780575917489778993949200640962483115882197161747747290540542293365945408589813232421875000*x^3 + 35156242036359592423424835713148968111061065708709233193180706914578932824908763817726135253906250000*x^2 - 67343922924450272246487586220096913463088455707824989405400101823066927103864699365830600261688232421875*x + 18889531357953539841988445266954898098572993655382661077171463933453827924822919511303183652460575103759765625/152;
+
+G2:=x^9 + 3824866071840908371352447620567544031093070309673213345552075826738460350649538515589860086535875/14134776518227074636666380005943348126619871175004951664972849610340958208*x^8 - 
+115557483475215734878532946106449262195299743560923106051709620643233093119402101083241021291388144958592821531774922931515625/1897137590064188545819787018382342682267975428761855001222473056385648716020711424*x^7 + 1682515013866705889154631673100521239598292394442145328785070140566385959706370678895008555067071879224232314524752954994079309973382047701617380998046875/254629497041810760783555711051172270131433549208242031329517556169297662470417088272924672*x^6 - 681578374841907772582729634883300653786555904175425736844517680364651313938024676193009093926708860088272114558136274378938929201392874940856407663330078125/15914343565113172548972231940698266883214596825515126958094847260581103904401068017057792*x^5 + 3905485026694932434222046596660672648848953410017770773131270374719400945079893850393799268362537569079156794264426070125874809681101204598430403942352294921875/31828687130226345097944463881396533766429193651030253916189694521162207808802136034115584*x^4 - 24039535566054568692035359978325402060903059283738716743967132504234494510393899376207628818690499152446921261260318871653120695526571781101951430945984867095947265625/130370302485407109521180524058200202307293977194619920040712988758680403184853549195737432064*x^3 + 2818671607705792547215055476331036555731644061318313496529089737480956452723527429357720428994429207150292190094010108732849580374446907089892081977192277431488037109375/16296287810675888690147565507275025288411747149327490005089123594835050398106693649467179008*x^2 - 3743564505236429806440287609593839188236636871323411757351240240377107304295887292282266965822037315492610227215167282697230759866066855432166184138529595911502838134765625/32592575621351777380295131014550050576823494298654980010178247189670100796213387298934358016*x + 52285879932679165179615145720900143963119537260291947871851459257016766048690896928218047411932736498249906154512998475962422433426999299391607488397074422025538980960845947265625/1268242302578040361422044138038171568045355810149262582156055954644442962182255326576133739118592;
+K<t>:=NumberField(G1);
+E1:=EllipticCurveWithjInvariant(t);
+Factorization(DivisionPolynomial(E1,27) div DivisionPolynomial(E1,9));
+L<a>:=NumberField(G2);
+E2:=EllipticCurveWithjInvariant(a);
+Factorization(DivisionPolynomial(E2,27) div DivisionPolynomial(E2,9));
+
+
+//For any r greater than 3, any odd degree point on X_1(9) and X_1(27) associated to an elliptic curve 3^r-isogenous to E will have degree divisible by 3 or 27, respectively. Thus the claim holds with j_min=-413493625/152.
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//Let E be the elliptic curve over Q with LMFDB label 1734.k2, which has 3-adic Galois image 9.36.0.7. First, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 3-isogenous to E has degree divisible by 3.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(3);
+F:=P!f;
+
+Factorization(Evaluate(F,y,-1579268174113/10077696));
+E1:=EllipticCurveWithjInvariant(-843137281012581793/216);
+Factorization(DivisionPolynomial(E1,9) div DivisionPolynomial(E1,3));
+
+//Next, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 9-isogenous to E has degree divisible by 3.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(9);
+F:=P!f;
+
+Factorization(Evaluate(F,y,-1579268174113/10077696));//Divisible by 3 in each case.
+
+//Since 3 divides the degree of any odd degree point on X_1(9) associated to an elliptic curve 3^r-isogenous to E for any r greater than 2, the claim holds with j_min=j(E).
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//Let E be the elliptic curve over Q with LMFDB label 17100.r1, which has 3-adic Galois image 9.36.0.8. First, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 3-isogenous to E has degree divisible by 9.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(3);
+F:=P!f;
+
+Factorization(Evaluate(F,y,43573146510889416960/6859));
+E1:=EllipticCurveWithjInvariant(60003797858807040/322687697779);
+Factorization(DivisionPolynomial(E1,9) div DivisionPolynomial(E1,3));
+Q<x>:=PolynomialRing(Q);
+G1:=x^3 - 256374223886459794449875546599501335981656935680*x^2 - 47100575916724129516400357028881276583213782487859200*x - 60075438964039539081087639097831209872658369638376054718464000/6859;
+L<a>:=NumberField(G1);
+E2:=EllipticCurveWithjInvariant(a);
+Factorization(DivisionPolynomial(E2,9) div DivisionPolynomial(E2,3));
+
+//Next, we will show that any odd degree point on X_1(9) associated to an elliptic curve which is 9-isogenous to E has degree divisible by 9.
+
+Q:=Rationals();                                                                                                                             
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(9);
+F:=P!f;
+
+Factorization(Evaluate(F,y,43573146510889416960/6859));//Suffices to check degree 3 factor.
+Q<x>:=PolynomialRing(Q);
+G1:= x^3 - 557956731947645682461035011224555354880/33600614943460448322716069311260139*x^2 - 5782216728833686558684488832184845381489459200/230466617897195215045509519405933293401*x - 89808831536366425211634892037528978050298293518336000/1580770532156861979997149793605296459437459;
+K<t>:=NumberField(G1);
+E1:=EllipticCurveWithjInvariant(t);
+Factorization(DivisionPolynomial(E1,9) div DivisionPolynomial(E1,3));
+
+//Since 9 divides the degree of any odd degree point on X_1(9) associated to an elliptic curve 3^r-isogenous to E for any r greater than 2, the claim holds with j_min=j(E).
+
+
