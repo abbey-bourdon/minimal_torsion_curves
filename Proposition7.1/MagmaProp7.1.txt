@@ -1,0 +1,31 @@
+//Let E be the elliptic curve over Q with LMFDB label 726.a1, which has 2-adic Galois image 4.8.0.2. First, we will show that any odd degree point on X_1(8) associated to an elliptic curve which is 2-isogenous to E has degree divisible by 2.
+
+Q:=Rationals();                                                                                                                                            
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(2);
+F:=P!f;
+Factorization(Evaluate(F,y,43307231/82944));
+Q<x>:=PolynomialRing(Q);
+G1:=x^3 + 2354978739559871/6879707136*x^2 + 4363238873270060191/143327232*x - 87272481329788715434415200609/570630428688384;
+L<a>:=NumberField(G1);
+E1:=EllipticCurveWithjInvariant(a);
+Factorization(DivisionPolynomial(E1,8) div DivisionPolynomial(E1,4));
+
+//Next, we will show that any odd degree point on X_1(8) associated to an elliptic curve which is 4-isogenous to E has degree divisible by 2.
+
+Q:=Rationals();                                                                                                                                                  
+P<x,y>:=PolynomialRing(Q,2);
+f:=ClassicalModularPolynomial(4);
+F:=P!f;
+Factorization(Evaluate(F,y,43307231/82944));
+Q<x>:=PolynomialRing(Q);
+G1:=x^3 - 2503022809956046453777/44079842304*x^2 + 553729497504749213917010976833465/528958107648*x - 192723738521092794382659146964443644129/12694994583552;
+G2:=x^3 - 1403924830948249506193/89060441849856*x^2 + 24777584530368342248924359/1068725302198272*x - 220043012077855204316729438689/25649407252758528;
+L<a>:=NumberField(G1);
+E1:=EllipticCurveWithjInvariant(a);
+Factorization(DivisionPolynomial(E1,8) div DivisionPolynomial(E1,4));
+L<a>:=NumberField(G2);
+E2:=EllipticCurveWithjInvariant(a);
+Factorization(DivisionPolynomial(E2,8) div DivisionPolynomial(E2,4));
+
+//Since the 2-adic Galois representation of E has level 4, and elliptic curve which is 2^r-isogenous to E for r greater than 2 will have j-invariant defining an extension of even degree — an hence, will give a point on X_1(8) of even degree.
