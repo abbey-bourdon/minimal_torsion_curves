@@ -1,0 +1,46 @@
+R9:=IntegerRing(9);                                                                                
+GL9:=GeneralLinearGroup(2,R9);
+H9:=sub<GL9|[5,4,0,5],[8,2,0,1]>; // This is 9.36.0.6.
+Order3Sub:=Subgroups(H9: OrderEqual:=3);
+Order3Sub; 
+S1:=Order3Sub[1]`subgroup;   
+ClassS1:=Class(GL9,S1);
+ClassS1;
+S2:=Order3Sub[2]`subgroup;
+ClassS2:=Class(GL9,S2);
+ClassS2;
+S3:=Order3Sub[3]`subgroup;
+ClassS3:=Class(GL9,S3);
+ClassS3;
+
+
+H9:=sub<GL9|[2,7,6,2],[8,2,6,1],[8,5,6,1]>; //This is 9.36.0,8.
+Order3Sub:=Subgroups(H9: OrderEqual:=3);
+Order3Sub;
+S1:=Order3Sub[1]`subgroup;   
+ClassS1:=Class(GL9,S1);
+ClassS1;
+S2:=Order3Sub[2]`subgroup;
+ClassS2:=Class(GL9,S2);
+ClassS2;
+S3:=Order3Sub[3]`subgroup;
+ClassS3:=Class(GL9,S3);
+ClassS3;
+S4:=Order3Sub[4]`subgroup;
+ClassS4:=Class(GL9,S4);
+ClassS4;
+S5:=Order3Sub[5]`subgroup;
+ClassS5:=Class(GL9,S5);
+ClassS5;
+S6:=Order3Sub[6]`subgroup;
+ClassS6:=Class(GL9,S6);
+ClassS6;
+S7:=Order3Sub[7]`subgroup;
+ClassS7:=Class(GL9,S7);
+ClassS7;
+S8:=Order3Sub[8]`subgroup;
+ClassS8:=Class(GL9,S8);
+ClassS8;
+S9:=Order3Sub[9]`subgroup;
+ClassS9:=Class(GL9,S9);
+ClassS9;
