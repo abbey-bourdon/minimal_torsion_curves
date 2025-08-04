@@ -1,0 +1,7 @@
+R7:=IntegerRing(7);
+GL7:=GeneralLinearGroup(2,R7);
+H:=sub<GL7|[0,1,1,0],[2,0,0,1]>;
+SubH:=Subgroups(H: IndexEqual:=3);
+S2:=SubH[2]`subgroup;
+ClassS2:=Class(GL7,S2);
+ClassS2;
